@@ -110,3 +110,21 @@ fun main() {
         }
     }
 }
+
+//10) Apresente todos os números pares entre 1 a 100, utilizando o FOR
+
+// Comandos de repetição
+fun main(){    
+ for (valor in 1..10){        
+     println(valor)   
+ }
+}
+
+
+// 11) Apresente todos os números ímpares entre 1 a 100 utilizando o While
+
+fun main(){    
+ for (valor in 1..100){if (valor % 2 == 0){     
+     println(valor) }  
+ }
+}
