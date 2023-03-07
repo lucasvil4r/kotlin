@@ -1,130 +1,137 @@
-fun main() { 
-    var idade = 18    
-    if( idade>=18){
-    println("Adulto")    
-    }
+fun escreve(nome:String, sNome:String, faculdade:String){   
+    println("<<< $nome")    
+    println("<<< $sNome")    
+    println("<<< $faculdade")    
 }
-
-//---------------------------
-
-fun main() {
-    println("Hello, world!!!")
-}
-
-//------------------------
 
 fun main(){       
-var numero: Double = 3.554525635425    
-var numero2: Float = 5.3f       
-var numeroInteiro: Int = 10    
-var numeroLong: Long = 100000000L        
-var resultado: Boolean = false    
-    
-println(numero)
-println(numero2)
-println(numeroInteiro)
-println(numeroLong)
-println(resultado)
-    
+ escreve("José","Silva","GV")
 }
 
----------------------------
-
-//1) Inicialize duas variáveis, realize a soma e apresente o resultado
-
-fun main(){       
-var valor1 = 5
-var valor2 = 10
-var valor = valor1 + valor2
-println(valor)
-
-}
-
----------------------------
-
-//2) Inicialize duas variáveis, realize a subtração e apresente o resultado
-
-fun main(){       
-var valor1 = 5.0
-var valor2 = 10
-var valor = valor1 - valor2
-println(valor)
-
-}
-
-------------------------
-
-//Inicialize duas variáveis com as notas da notaProfessor e da notaProvaGeral do aluno. Apresente em console a seguinte condição. Se uma delas for maior do que 6, a operação deve retornar true, caso contrário deve retornar false.
+-------------------------------------------------
 
 fun main() {
-    val notaProfessor = 7
-    val notaProvaGeral = 5
-    
-    val resultado = notaProfessor > 6 || notaProvaGeral > 6
-    
-    println(resultado)
+    var nome = "Fabio"
+    imprimir(nome)
+    val soma = somar(2, 3)
+    imprimir("Soma: $soma")
+}
+// recebe uma string e não retorna nada (Unit)
+fun imprimir(s: String): Unit {
+	println(s)
 }
 
--------------------------
-
-//7) Inicialize duas variáveis com as notas da notaProfessor e da notaProvaGeral do aluno. Apresente em console a seguinte condição. Se as duas forem maiores do que 6 a operação deve retornar true, caso contrário deve retornar false.
-
-fun main() {   
-    var notaProfessor = 5//0-10    
-    var notaProvaGeral = 5 //0-10   
-    println( notaProfessor >= 6 && notaProvaGeral >= 6 )    
+// Recebe 2 inteiros e retorna uma inteiro
+fun somar(a: Int, b: Int): Int {
+	return a + b
 }
 
-//8) Inicialize 3 temperaturas e apresente em console se alguma delas é negativa
-
-fun main(){
-    var temp1:Double = -1.0
-    var temp2:Double = 3.0
-    var temp3:Double = 4.0
-        
-    if(temp1<0 || temp2<0 || temp3<0){
-    print("Uma das temperaturas é negativa")
-    }
-    else{
-    print("Todas as temperaturas são positivas")
-    }
-}
-
-//9) Inicialize as notas dos alunos, N1 e N2. Verifique se a média das duas é maior do que 6. Se sim, exiba uma mensagem indicando que o aluno foi aprovado. Senão Inicialize uma nova nota N3 e verifique se o aluno foi aprovado.
+-------------------------------------------------
 
 fun main() {
-    val n1 = 7.5
-    val n2 = 8.0
-
-    val media = (n1 + n2) / 2
-
-    if (media >= 6) {
-        println("Aluno aprovado com média $media")
-    } else {
-        val n3 = 6.0
-        val mediaNova = (n1 + n2 + n3) / 3
-        if (mediaNova >= 6) {
-            println("Aluno aprovado com média $mediaNova")
-        } else {
-            println("Aluno reprovado com média $mediaNova")
-        }
+    val numero = 5
+    var fatorial = 1
+    for (ordem in 1..numero) {
+        fatorial *= ordem
     }
+    println(fatorial)
 }
 
-//10) Apresente todos os números pares entre 1 a 100, utilizando o FOR
+----------------------------------------------------
 
 // Comandos de repetição
 fun main(){    
- for (valor in 1..10){        
+ for (valor in 1..10){      
      println(valor)   
  }
 }
 
+----------------------------------------------------
 
-// 11) Apresente todos os números ímpares entre 1 a 100 utilizando o While
 
-fun main(){    
- for (valor in 1..100){if (valor % 2 == 0){     
-     println(valor) }  
- }
+fun main() { 
+    var nome:String? = "Fabio" 
+    println("Olá $nome") 
+    nome = null // OK 
+    println("Olá $nome") 
+    if (nome != null){ 
+    println("$nome possui ${nome.length} caracteres") 
+    }
+}
+
+-------------------------------------------------
+
+
+fun escreve(nome:String,  sNome:String?=null, faculdade:String="Impacta"){
+    if (sNome!=null){
+     print(" $sNome") 
+    }
+    if (faculdade!=null){       
+     print(" - $faculdade")    
+    }
+    println(" >>>") 
+}
+
+fun main(){       
+escreve("José","Silva","GV")  
+escreve("João","Silveira")    
+escreve("Ana")    
+escreve("Paula",faculdade="USP")  
+}
+--------------------------------------------------
+
+fun main() {
+    var i = getInteiro("5")
+    println(i)
+    i = getInteiro(null)
+    println(i)
+    i = getInteiro(null, 2)
+    println(i)
+}
+
+// Função que transforma uma string num inteiro; caso a string seja nula,
+// retorna 0, o valor doo argumento padrão
+fun getInteiro(s: String?, padrao: Int = 0): Int {
+    if (s != null) {
+    return s.toInt()
+    }
+return padrao
+}
+
+--------------------------------------------------
+
+fun main() {
+    teste("Fabio", "Pereira", "Impacta")
+    teste("Fabio")
+    teste("Fabio", faculdade = "Impacta")
+}
+
+fun teste(nome: String?, sobrenome: String? = null, faculdade: String? = null) {
+	println("Nome: $nome, Sobrenome: $sobrenome, Faculdade: $faculdade")
+}
+
+--------------------------------------------------
+
+fun calcula(num1:Double, num2:Double, operacao:String){   
+    var resultado:Double = 0.0
+    if(operacao == "SOMAR"){
+    resultado = num1+num2
+    }
+    else if (operacao == "SUBTRAIR"){
+    resultado = num1-num2
+    }else if (operacao=="MULTIPLICAR") {
+    resultado = num1*num2
+    }else if (operacao == "DIVIDIR"){
+    resultado = num1/num2}
+    print("$operacao, $resultado")
+}
+
+fun main(){       
+var num1:Double
+var num2:Double
+var operacao:String
+num1 = 30.0
+num2 = 20.0
+operacao = "SUBTRAIR"
+calcula(num1, num2, operacao)
 }
