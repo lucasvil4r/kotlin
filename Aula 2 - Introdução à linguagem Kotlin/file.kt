@@ -78,6 +78,8 @@ escreve("João","Silveira")
 escreve("Ana")    
 escreve("Paula",faculdade="USP")  
 }
+
+
 --------------------------------------------------
 
 fun main() {
@@ -125,6 +127,9 @@ fun calcula(num1:Double, num2:Double, operacao:String){
     resultado = num1/num2}
     print("$operacao, $resultado")
 }
+
+
+--------------------------------------------------
 
 fun main(){       
 var num1:Double
